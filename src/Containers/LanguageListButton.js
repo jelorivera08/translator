@@ -14,14 +14,15 @@ class LanguageListButton extends Component {
   };
 
   handleChange = event => {
+    const { handleChangeOfLanguage } = this.props;
     this.setState({ [event.target.name]: event.target.value });
+    handleChangeOfLanguage(LANGUAGES_LIST[event.target.value]);
   };
 
   render() {
-    const { anchorEl } = this.state;
     return (
       <Grid item xs={6}>
-        <form autoComplete="off" style={{ padding: '40px 80px' }}>
+        <form autoComplete="off" style={{ padding: '40px 20px' }}>
           <FormControl variant="outlined" style={{ width: '100%' }}>
             <InputLabel
               ref={ref => {
@@ -42,11 +43,8 @@ class LanguageListButton extends Component {
                 />
               }
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
               {Object.entries(LANGUAGES_LIST).map(language => (
-                <MenuItem value={language[1]}>
+                <MenuItem key={language[0]} value={language[0]}>
                   <em>{language[0]}</em>
                 </MenuItem>
               ))}

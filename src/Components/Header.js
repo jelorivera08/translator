@@ -1,16 +1,16 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 
 const Header = () => (
-  <Typography
+  <div
     style={{
       fontSize: '20px',
       padding: '10px',
-      textAlign: 'center'
+      textAlign: 'center',
+      fontFamily: 'K2D'
     }}
   >
     Hi! What would you like to translate?
-  </Typography>
+  </div>
 );
 
 export default Header;

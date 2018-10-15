@@ -3,18 +3,20 @@ import translate from 'yandex-translate';
 import { KEY } from './constants';
 
 function* rootSaga() {
-  yield takeLatest('TEST', testGetter);
+  yield takeLatest('TRANSLATE_API_CALL', translateTo);
 }
 
-function* testGetter() {
-  yield translateTo();
-}
+function translateTo(props) {
+  const { to, sentence, translateWord } = props;
+  let translateWithKey = translate(KEY);
 
-function translateTo() {
-  let translate2 = translate(KEY);
-  translate2.translate('hi', { to: 'ja' }, function(err, res) {
-    console.log(res.text);
-  });
+  try {
+    translateWithKey.translate(sentence, { to: to }, function(err, res) {
+      translateWord(res);
+    });
+  } catch (err) {
+    alert('API ERROR');
+  }
 }
 
 export default rootSaga;
