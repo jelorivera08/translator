@@ -21,7 +21,7 @@ const ErrorDialog = props => (
     aria-describedby="alert-dialog-slide-description"
   >
     <DialogTitle id="alert-dialog-slide-title">
-      {'There seemts to be something wrong..'}
+      {'There seems to be something wrong..'}
     </DialogTitle>
     <DialogContent>
       <DialogContentText id="alert-dialog-slide-description">
